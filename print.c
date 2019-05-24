@@ -6,36 +6,48 @@
 /*   By: croxana <croxana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/16 13:35:40 by croxana           #+#    #+#             */
-/*   Updated: 2019/05/17 13:35:25 by croxana          ###   ########.fr       */
+/*   Updated: 2019/05/24 12:34:10 by croxana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	ft_print_map(t_tet *head)
+void	ft_print_map(t_tet *head, int n)
 {
-	int i;
-	int c;
-	int k;
+	char	map[n][n];
+	int		i;
+	int		k;
+	int		c;
+	int		j;
+	t_tet	*tet;
 
-	//printf("print\n");
-	while (head != NULL)
+	tet = head;
+	j = -1;
+	while (++j < n)
+		ft_memset(&map[j], '.', n);
+	printf("print > while tet, N: %d>>\n", n);
+	while (tet)
 	{
 		i = -1;
-		while (++i < 4)
+		j = 0;
+		while (++i < tet->height)
 		{
 			c = 15;
-			while (c > 11)
+			k = 0;
+			while (c > 15 - tet->width)
 			{
-				k = (head->elem)[i] >> c--;
-				if (k & 1)
-					write(1, &(head->symbol), 1);
-				else
-					write(1, ".", 1);
+				if (((tet->elem)[i] >> c--) & 1)
+					map[tet->y + j][tet->x + k] = tet->symbol;
+				k++;
 			}
-			write(1, "\n", 1);
+			j++;
 		}
-		head = head->next;
+		tet = tet->next;
+	}
+	j = -1;
+	while (++j < n)
+	{
+		write(1, &map[j], n);
 		write(1, "\n", 1);
 	}
 }
