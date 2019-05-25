@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: croxana <croxana@student.42.fr>            +#+  +:+       +#+         #
+#    By: tpepperm <tpepperm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/11 15:19:12 by croxana           #+#    #+#              #
-#    Updated: 2019/05/25 11:23:38 by croxana          ###   ########.fr        #
+#    Updated: 2019/05/25 14:16:35 by tpepperm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRC = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
 	  ft_strjoin.c ft_strlcat.c ft_strlen.c ft_strmap.c ft_strmapi.c ft_strncat.c \
 	  ft_strncmp.c ft_strncpy.c ft_strnequ.c ft_strnew.c ft_strnstr.c \
 	  ft_strrchr.c ft_strsplit.c ft_strstr.c ft_strsub.c ft_strtrim.c \
-	  ft_swap.c ft_tolower.c ft_toupper.c
+	  ft_swap.c ft_tolower.c ft_toupper.c get_next_line.c
 
 FLAG = -c -Wall -Werror -Wextra
 
@@ -38,7 +38,7 @@ OBG = ft_atoi.o ft_bzero.o ft_isalnum.o ft_isalpha.o ft_isascii.o ft_isdigit.o \
 	  ft_strjoin.o ft_strlcat.o ft_strlen.o ft_strmap.o ft_strmapi.o ft_strncat.o \
 	  ft_strncmp.o ft_strncpy.o ft_strnequ.o ft_strnew.o ft_strnstr.o \
 	  ft_strrchr.o ft_strsplit.o ft_strstr.o ft_strsub.o ft_strtrim.o \
-	  ft_swap.o ft_tolower.o ft_toupper.o
+	  ft_swap.o ft_tolower.o ft_toupper.o get_next_line.o
 
 all: $(NAME)
 

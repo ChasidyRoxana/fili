@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: croxana <croxana@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tpepperm <tpepperm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/10 14:50:21 by croxana           #+#    #+#             */
-/*   Updated: 2019/05/25 11:01:00 by croxana          ###   ########.fr       */
+/*   Updated: 2019/05/25 14:47:11 by tpepperm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
+# include <stdio.h> //удалить это надо не забыть
 # define MIN_INT -2147483648
-# define BUFF_SIZE 50
+# define BUFF_SIZE 32
 # define FD_SIZE 10240
 
 typedef struct		s_list

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: croxana <croxana@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tpepperm <tpepperm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/16 11:56:07 by croxana           #+#    #+#             */
-/*   Updated: 2019/05/24 11:35:29 by croxana          ###   ########.fr       */
+/*   Updated: 2019/05/25 15:00:23 by tpepperm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "./includes/fillit.h"
 
 static void		ft_move(t_tet **head)
 {

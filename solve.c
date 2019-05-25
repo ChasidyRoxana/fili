@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   solve.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: croxana <croxana@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tpepperm <tpepperm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/19 15:05:07 by croxana           #+#    #+#             */
-/*   Updated: 2019/05/24 13:20:37 by croxana          ###   ########.fr       */
+/*   Updated: 2019/05/25 15:01:10 by tpepperm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "./includes/fillit.h"
 
 static int	ft_mysqrt(t_tet *head)
 {

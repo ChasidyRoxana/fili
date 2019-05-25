@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: croxana <croxana@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tpepperm <tpepperm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/16 13:35:40 by croxana           #+#    #+#             */
-/*   Updated: 2019/05/24 12:34:10 by croxana          ###   ########.fr       */
+/*   Updated: 2019/05/25 15:01:00 by tpepperm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "./includes/fillit.h"
 
 void	ft_print_map(t_tet *head, int n)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   read.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: croxana <croxana@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tpepperm <tpepperm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/16 11:55:33 by croxana           #+#    #+#             */
-/*   Updated: 2019/05/24 12:26:00 by croxana          ###   ########.fr       */
+/*   Updated: 2019/05/25 15:00:50 by tpepperm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "./includes/fillit.h"
 
 static int		ft_new_elem(char *line, t_tet *tet)
 {
