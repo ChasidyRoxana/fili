@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   read.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpepperm <tpepperm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: croxana <croxana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/16 11:55:33 by croxana           #+#    #+#             */
-/*   Updated: 2019/05/25 15:00:50 by tpepperm         ###   ########.fr       */
+/*   Updated: 2019/05/27 14:25:25 by croxana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/fillit.h"
+#include "./includes/libft.h"
 
 static int		ft_new_elem(char *line, t_tet *tet)
 {
@@ -51,7 +52,6 @@ static void		ft_n_node(char sym, t_tet *new)
 	new->height = 4;
 	new->x = 0;
 	new->y = 0;
-	new->map = 2;
 	while (i < 4)
 		new->elem[i++] = 0;
 	new->next = NULL;

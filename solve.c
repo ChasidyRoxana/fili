@@ -6,7 +6,7 @@
 /*   By: croxana <croxana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/19 15:05:07 by croxana           #+#    #+#             */
-/*   Updated: 2019/05/26 18:33:51 by croxana          ###   ########.fr       */
+/*   Updated: 2019/05/27 16:36:13 by croxana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ int		ft_move_yx(t_tet **tet, int n)
 		(*tet)->x += 1;
 	else
 	{
+		//if ((*tet)->y + 1 + (*tet)->height > n)
+		//	return (0);
 		(*tet)->y += 1;
 		(*tet)->x = 0;
 	}
@@ -75,24 +77,25 @@ static int	ft_map(int *map, t_tet **head, int n)
 	tet = *head;
 	if (!tet)
 		return (1);
-	printf("N: %d\n", n);
-	while (tet)
+	while (tet && (tet->y + tet->height) <= n)
 	{
 		if (ft_check_place(map, &tet, n))
 		{
 			i = -1;
 			while (++i < tet->height)
-					map[tet->y + i] |= (tet->elem)[i] >> tet->x;
-			printf("Z    S:%c\n", tet->symbol);
+				map[tet->y + i] |= (tet->elem)[i] >> tet->x;
 			if (ft_map(map, &tet->next, n))
 				return 1;
 			i = -1;
 			while (++i < tet->height)
 				map[tet->y + i] ^= (tet->elem)[i] >> tet->x;
 		}
-		else
-			return 0;
-		tet = tet->next;
+		ft_move_yx(&tet, n);
+	}
+	if (tet && tet->y + tet->height > n)
+	{
+		tet->y = 0;
+		tet->x = 0;
 	}
 	return 0;
 }
@@ -110,8 +113,10 @@ int		ft_solve(t_tet **head)
 		return (0);
 	while (i < n)
 		map[i++] = 0;
-	while (ft_map(map, head, n) != 1)
+	printf("N: %d\n", n);
+	while (!ft_map(map, head, n))
 	{
+		ft_print_map(*head, n);
 		free (map);
 		tet = *head;
 		while (tet)
@@ -122,6 +127,7 @@ int		ft_solve(t_tet **head)
 		}
 		if (!(map = (int *)malloc(sizeof(int) * ++n)))
 			return (0);
+		printf("N: %d\n", n);
 		i = 0;
 		while (i < n)
 			map[i++] = 0;
