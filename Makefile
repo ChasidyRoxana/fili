@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tpepperm <tpepperm@student.42.fr>          +#+  +:+       +#+         #
+#    By: croxana <croxana@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/16 11:37:56 by croxana           #+#    #+#              #
-#    Updated: 2019/05/25 15:51:32 by tpepperm         ###   ########.fr        #
+#    Updated: 2019/05/29 13:58:34 by croxana          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,6 @@ LIBFT = libft.a
 all: $(NAME)
 
 $(LIBFT): $(LIBFT_OBJ)
-			
 			ar rc $(LIBFT) $(LIBFT_OBJ)
 			ranlib $(LIBFT)
 
@@ -45,7 +44,7 @@ fclean: clean
 re: fclean all
 
 norm:
-	norminette -R CheckForbiddenSourceHeader
+	norminette -R CheckForbiddenSourceHeader main.c read.c solve.c print.c
 
 nor:
-	norminette
+	norminette main.c read.c solve.c print.c

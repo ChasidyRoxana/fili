@@ -6,7 +6,7 @@
 /*   By: croxana <croxana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/16 11:55:33 by croxana           #+#    #+#             */
-/*   Updated: 2019/05/27 14:25:25 by croxana          ###   ########.fr       */
+/*   Updated: 2019/05/29 13:44:04 by croxana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,24 +20,24 @@ static int		ft_new_elem(char *line, t_tet *tet)
 	int			n;
 
 	i = 0;
-	n = 15;
+	n = 7;
 	if (tet->f_sym == -1)
 		j = 0;
-	while (line[i] != '\0')
+	while (*(line + i) != '\0')
 	{
-		if (line[i] != '#' && line[i] != '.')
+		if (*(line + i) != '#' && *(line + i) != '.')
 			return (0);
-		if (line[i++] == '#')
+		if (*(line + i++) == '#')
 		{
 			if (tet->f_sym == -1 || i - 1 < tet->f_sym)
 				tet->f_sym = i - 1;
-			(tet->elem)[j] = (tet->elem)[j] | (1 << n);
+			*(tet->elem + j) = *(tet->elem + j) | (1 << n);
 		}
 		n--;
 	}
 	if (i != 4)
 		return (0);
-	j += (j == 0 && (tet->elem)[j] == 0) ? 0 : 1;
+	j += (j == 0 && *(tet->elem + j) == 0) ? 0 : 1;
 	return (1);
 }
 
@@ -53,7 +53,7 @@ static void		ft_n_node(char sym, t_tet *new)
 	new->x = 0;
 	new->y = 0;
 	while (i < 4)
-		new->elem[i++] = 0;
+		*(new->elem + i++) = 0;
 	new->next = NULL;
 }
 
@@ -112,13 +112,15 @@ t_tet			*ft_read(char *file_name, t_tet **head)
 			ft_satan(gnl, head, &tet);
 		if (gnl++ % 5 == 0)
 		{
-			if (get_next_line(fd, &line) != 1)
+			if (*line != '\0' || get_next_line(fd, &line) != 1)
 				return (NULL);
 			gnl++;
 		}
 		if (ft_new_elem(line, tet) == 0)
 			return (NULL);
 	}
+	if (gnl == 1)
+		return (NULL);
 	close(fd);
 	return (*head);
 }
