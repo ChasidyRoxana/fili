@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: croxana <croxana@student.42.fr>            +#+  +:+       +#+         #
+#    By: tpepperm <tpepperm@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/16 11:37:56 by croxana           #+#    #+#              #
-#    Updated: 2019/05/29 13:58:34 by croxana          ###   ########.fr        #
+#    Updated: 2019/05/30 19:10:16 by tpepperm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ fclean: clean
 re: fclean all
 
 norm:
-	norminette -R CheckForbiddenSourceHeader main.c read.c solve.c print.c
+	norminette -R CheckForbiddenSourceHeader main.c read.c solve.c print.c 
 
 nor:
-	norminette main.c read.c solve.c print.c
+	norminette main.c read.c solve.c print.c ./includes/array.h ./includes/fillit.h ./includes/libft.h

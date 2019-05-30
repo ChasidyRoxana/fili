@@ -6,7 +6,7 @@
 /*   By: tpepperm <tpepperm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 12:02:01 by croxana           #+#    #+#             */
-/*   Updated: 2019/05/25 14:35:26 by tpepperm         ###   ########.fr       */
+/*   Updated: 2019/05/30 19:15:07 by tpepperm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,35 +56,3 @@ int			get_next_line(const int fd, char **line)
 	}
 	return (ft_end(line, buf[fd]));
 }
-/*
-int	main(int ac, char **av)
-{
-	char	**line;
-	int		fd;
-	//int		fd1;
-	int		ret;
-
-	line = (char**)malloc(1);
-	if (ac == 2)
-	{
-		fd = open(av[1], O_RDONLY);
-		fd1 = open(av[2], O_RDONLY);
-		//for(int i = 0; i < 5; i++)
-		//{
-		//	if (get_next_line(fd, line) == 1)
-		//		printf("%s\n", *line);
-		//	if (get_next_line(fd1, line) == 1)
-		//		printf("%s\n", *line);
-		//}
-		while ((ret = get_next_line(fd, line)) == 1)
-			printf("ret: %d -- %s\n", ret, *line);
-		printf("ret: %d\n", ret);
-		printf("UFF, TRY AGAIN OR... THE END?\n");
-		close(fd);
-	}
-	else
-		printf("FILE NAME MISSING");
-	free(line);
-	return (0);
-}*/
-//gcc -Wall -Werror -Wextra get_next_line.c get_next_line.h ft_memmove.c ft_strchr.c ft_strcdup.c ft_strlen.c ft_strnew.c ft_strjoin.c ft_strdup.c

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: croxana <croxana@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tpepperm <tpepperm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/16 11:55:33 by croxana           #+#    #+#             */
-/*   Updated: 2019/05/29 13:44:04 by croxana          ###   ########.fr       */
+/*   Updated: 2019/05/30 18:49:15 by tpepperm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int		ft_new_elem(char *line, t_tet *tet)
 	int			n;
 
 	i = 0;
-	n = 7;
+	n = 15;
 	if (tet->f_sym == -1)
 		j = 0;
 	while (*(line + i) != '\0')
@@ -97,14 +97,12 @@ static void		ft_satan(int gnl, t_tet **head, t_tet **tet)
 	}
 }
 
-t_tet			*ft_read(char *file_name, t_tet **head)
+t_tet			*ft_read(int fd, t_tet **head)
 {
-	int		fd;
 	char	*line;
 	t_tet	*tet;
 	int		gnl;
 
-	fd = open(file_name, O_RDONLY);
 	gnl = 1;
 	while (get_next_line(fd, &line) == 1)
 	{

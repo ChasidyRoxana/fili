@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: croxana <croxana@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tpepperm <tpepperm@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/16 13:35:40 by croxana           #+#    #+#             */
-/*   Updated: 2019/05/29 13:22:19 by croxana          ###   ########.fr       */
+/*   Updated: 2019/05/30 18:14:21 by tpepperm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ static void	ft_putbit(char map[], t_tet *tet, int j)
 	int	c;
 	int	k;
 
-	c = 7;
+	c = 15;
 	k = 0;
-	while (c > 7 - tet->width)
+	while (c > 15 - tet->width)
 	{
 		if ((tet->elem[j] >> c--) & 1)
 			map[tet->x + k] = tet->symbol;
