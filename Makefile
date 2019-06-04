@@ -3,24 +3,20 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tpepperm <tpepperm@student.42.fr>          +#+  +:+       +#+         #
+#    By: croxana <croxana@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/16 11:37:56 by croxana           #+#    #+#              #
-#    Updated: 2019/05/30 19:10:16 by tpepperm         ###   ########.fr        #
+#    Updated: 2019/06/04 12:01:10 by croxana          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
 
-SRC = main.c read.c print.c solve.c
-
-OBJ = main.o read.o print.o solve.o
+OBJ = $(patsubst %.c,%.o,$(wildcard *.c))
 
 FLAG = -Wall -Wextra -Werror
 
 INCLUDES = ./includes
-
-LIBFT_SRC = ./libft/*.c
 
 LIBFT_OBJ = $(patsubst %.c,%.o,$(wildcard ./libft/*.c))
 

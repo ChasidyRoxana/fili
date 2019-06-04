@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpepperm <tpepperm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: croxana <croxana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/16 11:56:07 by croxana           #+#    #+#             */
-/*   Updated: 2019/05/30 19:12:29 by tpepperm         ###   ########.fr       */
+/*   Updated: 2019/06/04 12:09:54 by croxana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,15 @@ static void		ft_move(t_tet **head)
 	{
 		i = -1;
 		while (++i < 4)
-			ELEM_I <<= tet->f_sym;
+			ELEM[i] <<= tet->f_sym;
 		i = -1;
 		while (++i < 4)
 		{
 			k = 0;
-			if (ELEM_I == 0 && i < tet->height)
+			if (ELEM[i] == 0 && i < tet->height)
 				tet->height = i;
 			while (++k < 5)
-				if (((ELEM_I & (1 << (15 - k))) != 0) && (k + 1 > tet->width))
+				if (((ELEM[i] & (1 << (15 - k))) != 0) && (k + 1 > tet->width))
 					tet->width = k + 1;
 		}
 		tet->f_sym = 0;
@@ -78,7 +78,7 @@ static int		ft_check_tet(t_tet *tet)
 		i = 5;
 		a = 0;
 		while (--i > 0)
-			a = a | (tet->elem[i - 1] >> (4 * (i - 1)));
+			a = a | (ELEM[i - 1] >> (4 * (i - 1)));
 		b = a;
 		while (b != 0)
 		{

@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpepperm <tpepperm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: croxana <croxana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/16 11:38:48 by croxana           #+#    #+#             */
-/*   Updated: 2019/05/30 19:13:11 by tpepperm         ###   ########.fr       */
+/*   Updated: 2019/06/04 12:08:49 by croxana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
 
-# define ELEM_I (tet->elem)[i]
+# define ELEM (tet->elem)
 
 typedef struct		s_tet
 {
@@ -27,7 +27,7 @@ typedef struct		s_tet
 	struct s_tet	*next;
 }					t_tet;
 
-t_tet				*ft_read(int fd, t_tet **head);
+int					*ft_read(int fd, t_tet **head);
 void				ft_print_map(t_tet *head, int n);
 int					ft_solve(t_tet **head);
 

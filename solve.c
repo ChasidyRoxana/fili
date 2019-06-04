@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   solve.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpepperm <tpepperm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: croxana <croxana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/19 15:05:07 by croxana           #+#    #+#             */
-/*   Updated: 2019/05/30 19:06:52 by tpepperm         ###   ########.fr       */
+/*   Updated: 2019/06/04 12:09:03 by croxana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static void	ft_bitinmap(int *map, t_tet *tet)
 
 	i = -1;
 	while (++i < tet->height)
-		map[tet->y + i] ^= ELEM_I >> tet->x;
+		map[tet->y + i] ^= ELEM[i] >> tet->x;
 }
 
 static int	ft_map(int *map, t_tet **head, int n)
@@ -72,11 +72,8 @@ static int	ft_map(int *map, t_tet **head, int n)
 		}
 		ft_move_yx(&tet, n);
 	}
-	if (tet && tet->y + tet->height > n)
-	{
-		tet->y = 0;
-		tet->x = 0;
-	}
+	tet->y = 0;
+	tet->x = 0;
 	return (0);
 }
 

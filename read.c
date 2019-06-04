@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpepperm <tpepperm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: croxana <croxana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/16 11:55:33 by croxana           #+#    #+#             */
-/*   Updated: 2019/05/30 18:49:15 by tpepperm         ###   ########.fr       */
+/*   Updated: 2019/06/04 12:09:43 by croxana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ static int		ft_new_elem(char *line, t_tet *tet)
 		{
 			if (tet->f_sym == -1 || i - 1 < tet->f_sym)
 				tet->f_sym = i - 1;
-			*(tet->elem + j) = *(tet->elem + j) | (1 << n);
+			*(ELEM + j) = *(ELEM + j) | (1 << n);
 		}
 		n--;
 	}
 	if (i != 4)
 		return (0);
-	j += (j == 0 && *(tet->elem + j) == 0) ? 0 : 1;
+	j += (j == 0 && *(ELEM + j) == 0) ? 0 : 1;
 	return (1);
 }
 
@@ -57,47 +57,35 @@ static void		ft_n_node(char sym, t_tet *new)
 	new->next = NULL;
 }
 
-static t_tet	*ft_new_node(t_tet *head)
+static int		ft_satan(int gnl, t_tet **head, t_tet **tet)
 {
-	t_tet	*new;
 	char	sym;
 
 	sym = 'A';
-	new = head;
-	if (!head)
-		new = (t_tet*)malloc(sizeof(t_tet));
-	else
-	{
-		while (new->next)
-		{
-			new = new->next;
-			sym++;
-		}
-		new->next = (t_tet*)malloc(sizeof(t_tet));
-		new = new->next;
-		sym++;
-	}
-	ft_n_node(sym, new);
-	return (new);
-}
-
-static void		ft_satan(int gnl, t_tet **head, t_tet **tet)
-{
+	*tet = *head;
 	if (gnl == 1)
 	{
-		*head = ft_new_node(*head);
+		if (!(*head = (t_tet*)malloc(sizeof(t_tet))))
+			return (0);
 		*tet = *head;
 	}
 	else
 	{
 		while ((*tet)->next)
+		{
 			*tet = (*tet)->next;
-		(*tet)->next = ft_new_node(*head);
+			sym++;
+		}
+		if (!((*tet)->next = (t_tet*)malloc(sizeof(t_tet))))
+			return (0);
 		*tet = (*tet)->next;
+		sym++;
 	}
+	ft_n_node(sym, *tet);
+	return (1);
 }
 
-t_tet			*ft_read(int fd, t_tet **head)
+int				*ft_read(int fd, t_tet **head)
 {
 	char	*line;
 	t_tet	*tet;
@@ -107,18 +95,19 @@ t_tet			*ft_read(int fd, t_tet **head)
 	while (get_next_line(fd, &line) == 1)
 	{
 		if (gnl == 1 || gnl % 5 == 0)
-			ft_satan(gnl, head, &tet);
+			if (!ft_satan(gnl, head, &tet))
+				return (0);
 		if (gnl++ % 5 == 0)
 		{
 			if (*line != '\0' || get_next_line(fd, &line) != 1)
-				return (NULL);
+				return (0);
 			gnl++;
 		}
 		if (ft_new_elem(line, tet) == 0)
-			return (NULL);
+			return (0);
 	}
 	if (gnl == 1)
-		return (NULL);
+		return (0);
 	close(fd);
-	return (*head);
+	return (1);
 }
