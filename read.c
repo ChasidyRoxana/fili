@@ -100,23 +100,15 @@ int				ft_read(int fd, t_tet **head)
 		if (gnl++ % 5 == 0)
 		{
 			if (*line != '\0')
-			{
-				free(line);
-				return (0);
-			}
+				return (ft_free_str(&line));
 			free(line);
 			get_next_line(fd, &line);
 			gnl++;
 		}
 		if (ft_new_elem(line, tet) == 0)
-		{
-			free(line);
-			return (0);
-		}
+			return (ft_free_str(&line));
 		free(line);
 	}
-	if (gnl == 1 || gnl % 5 != 0)
-		return (0);
 	close(fd);
-	return (1);
+	return ((gnl == 1 || gnl % 5 != 0) ? 0 : 1);
 }

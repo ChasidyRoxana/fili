@@ -13,6 +13,26 @@
 #include "./includes/fillit.h"
 #include "./includes/libft.h"
 
+void		ft_free_list(t_tet **head)
+{
+	t_tet	*temp;
+	t_tet	*new;
+
+	new = *head;
+	while (new)
+	{
+		temp = new;
+		new = new->next;
+		free(temp);
+	}
+}
+
+int			ft_free_str(char **s)
+{
+	free(*s);
+	return (0);
+}
+
 static void	ft_putbit(char map[], t_tet *tet, int j)
 {
 	int	c;

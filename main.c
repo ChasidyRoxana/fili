@@ -14,20 +14,6 @@
 #include "./includes/libft.h"
 #include "./includes/array.h"
 
-static void		ft_free_list(t_tet **head)
-{
-	t_tet *temp;
-	t_tet *new;
-
-	new = *head;
-	while (new)
-	{
-		temp = new;	
-		new = new->next;
-		free(temp);
-	}
-}
-
 int				ft_mysqrt(t_tet *head)
 {
 	int		i;

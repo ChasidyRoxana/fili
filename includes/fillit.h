@@ -32,5 +32,7 @@ void				ft_print_map(t_tet *head, int n);
 int					ft_solve(t_tet **head);
 
 int					ft_mysqrt(t_tet *head);
+void				ft_free_list(t_tet **head);
+int					ft_free_str(char **s);
 
 #endif
