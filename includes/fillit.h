@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpepperm <tpepperm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: croxana <croxana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/16 11:38:48 by croxana           #+#    #+#             */
-/*   Updated: 2019/06/10 14:00:42 by tpepperm         ###   ########.fr       */
+/*   Updated: 2019/06/14 14:52:10 by croxana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int					ft_read(int fd, t_tet **head);
 void				ft_print_map(t_tet *head, int n);
 int					ft_solve(t_tet **head);
 
-int					ft_mysqrt(t_tet *head);
+int					ft_list_sqrt(t_tet *head);
 void				ft_free_list(t_tet **head);
 int					ft_free_str(char **s);
 

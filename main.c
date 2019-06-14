@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpepperm <tpepperm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: croxana <croxana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/16 11:56:07 by croxana           #+#    #+#             */
-/*   Updated: 2019/06/10 15:10:01 by tpepperm         ###   ########.fr       */
+/*   Updated: 2019/06/14 14:51:24 by croxana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "./includes/libft.h"
 #include "./includes/array.h"
 
-int				ft_mysqrt(t_tet *head)
+int				ft_list_sqrt(t_tet *head)
 {
 	int		i;
 	int		j;

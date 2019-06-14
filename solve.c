@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   solve.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpepperm <tpepperm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: croxana <croxana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/19 15:05:07 by croxana           #+#    #+#             */
-/*   Updated: 2019/06/10 15:10:03 by tpepperm         ###   ########.fr       */
+/*   Updated: 2019/06/14 14:49:16 by croxana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/fillit.h"
 #include "./includes/libft.h"
 
-int			ft_move_yx(t_tet **tet, int n)
+static int	ft_move_yx(t_tet **tet, int n)
 {
 	if (((*tet)->x + 1 + (*tet)->width) <= n)
 		(*tet)->x += 1;
@@ -84,7 +84,7 @@ int			ft_solve(t_tet **head)
 	int		i;
 
 	i = 0;
-	n = ft_mysqrt(*head);
+	n = ft_list_sqrt(*head);
 	if (!(map = (int *)malloc(sizeof(int) * n)))
 		return (0);
 	while (i < n)

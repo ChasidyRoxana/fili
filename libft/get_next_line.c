@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tpepperm <tpepperm@student.42.fr>          +#+  +:+       +#+        */
+/*   By: croxana <croxana@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 12:02:01 by croxana           #+#    #+#             */
-/*   Updated: 2019/06/10 14:47:29 by tpepperm         ###   ########.fr       */
+/*   Updated: 2019/06/14 14:57:11 by croxana          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
-#include <stdio.h>
+
 static int	ft_end(char **line, char *buf)
 {
 	char	*tp;
